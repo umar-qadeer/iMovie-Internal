@@ -2,7 +2,7 @@
 import Foundation
 
 protocol BreedsRepositoryProtocol: AnyObject {
-    func fetchMovies(completion: @escaping (Result<MovieResponse, Error>) -> Void)
+    func fetchMovies(page: Int, completion: @escaping (Result<MovieResponse, Error>) -> Void)
 }
 
 final class MoviesRepository: BreedsRepositoryProtocol {
@@ -19,7 +19,7 @@ final class MoviesRepository: BreedsRepositoryProtocol {
     
     // MARK: - BreedsRepositoryProtocol
     
-    func fetchMovies(completion: @escaping (Result<MovieResponse, Error>) -> Void) {
-        networkService.request(MovieRequest(), completion: completion)
+    func fetchMovies(page: Int, completion: @escaping (Result<MovieResponse, Error>) -> Void) {
+        networkService.request(MovieRequest(page: page), completion: completion)
     }
 }

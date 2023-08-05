@@ -34,6 +34,7 @@
 		4FB376432A7E304800F00E64 /* MovieListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FB3763A2A7E304800F00E64 /* MovieListViewModel.swift */; };
 		4FB3764B2A7E30B900F00E64 /* BaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FB3764A2A7E30B900F00E64 /* BaseViewModel.swift */; };
 		4FB3764E2A7E571F00F00E64 /* RemoteImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FB3764D2A7E571F00F00E64 /* RemoteImage.swift */; };
+		4FB376502A7E90B100F00E64 /* LoadingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FB3764F2A7E90B100F00E64 /* LoadingCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -65,6 +66,7 @@
 		4FB3763A2A7E304800F00E64 /* MovieListViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MovieListViewModel.swift; sourceTree = "<group>"; };
 		4FB3764A2A7E30B900F00E64 /* BaseViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewModel.swift; sourceTree = "<group>"; };
 		4FB3764D2A7E571F00F00E64 /* RemoteImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteImage.swift; sourceTree = "<group>"; };
+		4FB3764F2A7E90B100F00E64 /* LoadingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -152,6 +154,7 @@
 			isa = PBXGroup;
 			children = (
 				4F4E7CB82A7E2016008340D8 /* MovieListCell.swift */,
+				4FB3764F2A7E90B100F00E64 /* LoadingCell.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -394,6 +397,7 @@
 				4FB376362A7E2F6F00F00E64 /* Coordinator.swift in Sources */,
 				4FB3764E2A7E571F00F00E64 /* RemoteImage.swift in Sources */,
 				4FB3760C2A7E2CBE00F00E64 /* ErrorResponse.swift in Sources */,
+				4FB376502A7E90B100F00E64 /* LoadingCell.swift in Sources */,
 				4FB375F82A7E2A1200F00E64 /* MovieDetailView.swift in Sources */,
 				4FB3764B2A7E30B900F00E64 /* BaseViewModel.swift in Sources */,
 				4F4E7CB92A7E2016008340D8 /* MovieListCell.swift in Sources */,

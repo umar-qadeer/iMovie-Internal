@@ -17,11 +17,9 @@ struct RemoteImage: View {
             if let image = downloadedImage {
                 Image(uiImage: image)
                     .resizable()
-                    .aspectRatio(contentMode: .fit)
             } else {
                 Image("movie-placeholder")
                     .resizable()
-                    .aspectRatio(contentMode: .fit)
             }
         }
         .onAppear {

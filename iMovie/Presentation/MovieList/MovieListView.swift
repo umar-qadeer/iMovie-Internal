@@ -14,13 +14,22 @@ struct MovieListView: View {
 
     var body: some View {
         NavigationStack {
-            List(viewModel.movies) { movie in
-                NavigationLink(value: movie, label: {
-                    MovieListCell(movie: movie)
-                })
+            List {
+                ForEach(viewModel.movies) { movie in
+                    NavigationLink(value: movie, label: {
+                        MovieListCell(movie: movie)
+                    })
+                }
+                
+                if viewModel.currentPage < viewModel.totalPages {
+                    LoadingCell()
+                        .onAppear {
+                            viewModel.fetchMovies()
+                        }
+                }
             }
             .navigationTitle("Movies")
-            .navigationDestination(for: Movie.self) { moview in
+            .navigationDestination(for: Movie.self) { movie in
                 MovieDetailView()
             }
             .onAppear{

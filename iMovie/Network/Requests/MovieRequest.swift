@@ -2,6 +2,8 @@
 import Foundation
 
 struct MovieRequest: DataRequest {
+    
+    var page: Int
 
     var url: String {
         let baseURL: String = NetworkRoutes.baseURL
@@ -14,7 +16,10 @@ struct MovieRequest: DataRequest {
     }
 
     var queryItems: [String : String] {
-        return ["api_key":"c9856d0cb57c3f14bf75bdc6c063b8f3"]
+        return [
+            "api_key":"c9856d0cb57c3f14bf75bdc6c063b8f3",
+            "page": "\(page)"
+        ]
     }
 
     func decode(_ data: Data) throws -> MovieResponse {

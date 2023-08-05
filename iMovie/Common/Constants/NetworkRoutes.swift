@@ -3,15 +3,10 @@ import Foundation
 
 final class NetworkRoutes {
     // API base url
-    class var baseURL: String  {
-        guard let baseURL = Bundle.main.object(forInfoDictionaryKey: "ApiBaseURL") as? String else {
-            fatalError("BaseURL must not be empty in plist")
-        }
-        return baseURL
-    }
-    
+    static let baseURL: String = "https://api.themoviedb.org/3/"
+
     struct EndPoints {
-        static let breeds = "breeds/list/all"
+        static let movies = "discover/movie"
         static let breedImages = "breed/%@/images"
     }
 }

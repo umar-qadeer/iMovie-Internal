@@ -7,19 +7,26 @@
 
 import Foundation
 
-struct Movie: Identifiable {
-    var id = UUID()
-    var image: String
-    var title: String
-    var year: Int
+struct MovieResponse: Codable {
+    let page: Int
+    let results: [Movie]
+    let total_pages: Int
+    let total_results: Int
 }
 
-extension Movie {
-    static let sampleMovie = Movie(image: "movie-placeholder", title: "Shashank Redemption", year: 1994)
-    
-    static let sampleMovies = [
-        Movie(image: "movie-placeholder", title: "Shashank Redemption", year: 1994),
-        Movie(image: "movie-placeholder", title: "Shashank Redemption", year: 1994),
-        Movie(image: "movie-placeholder", title: "Shashank Redemption", year: 1994)
-    ]
+struct Movie: Codable, Identifiable {
+    let id: Int
+    let adult: Bool
+    let backdrop_path: String?
+    let genre_ids: [Int]
+    let original_language: String
+    let original_title: String
+    let overview: String
+    let popularity: Double
+    let poster_path: String?
+    let release_date: String
+    let title: String
+    let video: Bool
+    let vote_average: Double
+    let vote_count: Int
 }

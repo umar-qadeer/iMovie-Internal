@@ -14,7 +14,7 @@ struct MovieRequest: DataRequest {
     var method: HTTPMethod {
         .get
     }
-
+    
     var queryItems: [String : String] {
         return [
             "api_key":"c9856d0cb57c3f14bf75bdc6c063b8f3",

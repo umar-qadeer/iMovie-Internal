@@ -11,4 +11,9 @@ final class AppDIContainer {
         let dependencies = MovieListDIContainer.Dependencies(networkService: networkService)
         return MovieListDIContainer(dependencies: dependencies)
     }
+
+    func makeMovieDetailsDIContainer(movieId: String) -> MovieDetailsDIContainer {
+        let dependencies = MovieDetailsDIContainer.Dependencies(networkService: networkService, movieId: movieId)
+        return MovieDetailsDIContainer(dependencies: dependencies)
+    }
 }

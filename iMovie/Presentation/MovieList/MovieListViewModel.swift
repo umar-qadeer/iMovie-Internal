@@ -5,36 +5,40 @@ final class MovieListViewModel: BaseViewModel, ObservableObject {
     // MARK: - Properties
     
     @Published var movies = [Movie]()
-    private let breedsRepository: BreedsRepositoryProtocol?
+    private let moviesRepository: MoviesRepositoryProtocol?
+    private var isLoading = false
     var currentPage = 1
     var totalPages = 1
-    private var isLoading = false
 
     // MARK: - Initializers
     
-    init(breedsRepository: BreedsRepositoryProtocol) {
-        self.breedsRepository = breedsRepository
+    init(moviesRepository: MoviesRepositoryProtocol) {
+        self.moviesRepository = moviesRepository
     }
-    
+
     // MARK: - Functions
     
-    func fetchMovies() {
+    func fetchMovies() async {
         guard !isLoading, currentPage <= totalPages else {
             return
         }
         
         isLoading = true
-        breedsRepository?.fetchMovies(page: currentPage) { [weak self] result in
-            self?.isLoading = false
+        
+        do {
+            let response = try await moviesRepository?.fetchMovies(page: currentPage)
+            isLoading = false
+            currentPage += 1
             
-            switch result {
-            case .success(let response):
-                self?.movies.append(contentsOf: response.results)
-                self?.currentPage += 1
-                self?.totalPages = response.total_pages
-            case .failure(let error):
-                print(error)
+            if let response {
+                totalPages = response.total_pages
+                
+                DispatchQueue.main.async { [weak self] in
+                    self?.movies.append(contentsOf: response.results)
+                }
             }
+        } catch {
+            print(error)
         }
     }
 }

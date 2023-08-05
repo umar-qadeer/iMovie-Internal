@@ -17,19 +17,19 @@ final class MovieListDIContainer {
 
     // MARK: - Repository
 
-    private func makeBreedsRepository() -> BreedsRepositoryProtocol {
+    private func makeMovieListRepository() -> MoviesRepositoryProtocol {
         return MoviesRepository(networkService: dependencies.networkService)
     }
 
     // MARK: - ViewModel
 
     private func makeMovieListViewModel() -> MovieListViewModel {
-        return MovieListViewModel(breedsRepository: makeBreedsRepository())
+        return MovieListViewModel(moviesRepository: makeMovieListRepository())
     }
 
     // MARK: - ViewController
 
-    func makeMovieListSwiftUIView(_ coordinator: AppCoordinator) -> MovieListView {
+    func makeMovieListSwiftUIView() -> MovieListView {
         let viewModel = makeMovieListViewModel()
         let view = MovieListView(viewModel: viewModel)
         return view

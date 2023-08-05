@@ -9,38 +9,37 @@ import SwiftUI
 
 struct MovieListView: View {
     
-    @EnvironmentObject var coordinator: AppCoordinator
     @ObservedObject var viewModel: MovieListViewModel
-
+    
     var body: some View {
         NavigationStack {
             List {
                 ForEach(viewModel.movies) { movie in
-                    NavigationLink(value: movie, label: {
-                        MovieListCell(movie: movie)
-                    })
+                    NavigationLink(
+                        destination: makeDetailView(for: movie),
+                        label: {
+                            MovieListCell(movie: movie)
+                        }
+                    )
                 }
                 
                 if viewModel.currentPage < viewModel.totalPages {
                     LoadingCell()
-                        .onAppear {
-                            viewModel.fetchMovies()
+                        .task {
+                            await viewModel.fetchMovies()
                         }
                 }
             }
             .navigationTitle("Movies")
-            .navigationDestination(for: Movie.self) { movie in
-                MovieDetailView()
-            }
-            .onAppear{
-                viewModel.fetchMovies()
+            .task {
+                await viewModel.fetchMovies()
             }
         }
     }
+    
+    func makeDetailView(for movie: Movie) -> some View {
+        let appDIContainer = AppDIContainer()
+        let diContainer = appDIContainer.makeMovieDetailsDIContainer(movieId: "\(movie.id)")
+        return diContainer.makeMovieDetailsSwiftUIView()
+    }
 }
-
-//struct ContentView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        MovieListView()
-//    }
-//}

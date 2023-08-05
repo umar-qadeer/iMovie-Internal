@@ -1,25 +1,30 @@
 
 import Foundation
 
-protocol BreedsRepositoryProtocol: AnyObject {
-    func fetchMovies(page: Int, completion: @escaping (Result<MovieResponse, Error>) -> Void)
+protocol MoviesRepositoryProtocol: AnyObject {
+    func fetchMovies(page: Int) async throws -> MovieResponse
+    func fetchMovieDetails(movieId: String) async throws -> Movie
 }
 
-final class MoviesRepository: BreedsRepositoryProtocol {
-    
+final class MoviesRepository: MoviesRepositoryProtocol {
+
     // MARK: - Variables
-    
+
     private let networkService: NetworkService
-    
+
     // MARK: - Init
-    
+
     init(networkService: NetworkService) {
         self.networkService = networkService
     }
-    
+
     // MARK: - BreedsRepositoryProtocol
-    
-    func fetchMovies(page: Int, completion: @escaping (Result<MovieResponse, Error>) -> Void) {
-        networkService.request(MovieRequest(page: page), completion: completion)
+
+    func fetchMovies(page: Int) async throws -> MovieResponse {
+        return try await networkService.request(MovieRequest(page: page))
+    }
+
+    func fetchMovieDetails(movieId: String) async throws -> Movie {
+        return try await networkService.request(MovieDetailsRequest(movieId: movieId))
     }
 }

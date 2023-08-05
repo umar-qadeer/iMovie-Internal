@@ -13,19 +13,19 @@ struct MovieListCell: View {
     
     var body: some View {
         HStack {
-            RemoteImage(urlString: nil)
+            RemoteImage(urlString: movie.poster_path)
                 .frame(width: 100)
             
             VStack(alignment: .leading) {
                 Text(movie.title)
-                Text("\(movie.year)")
+                Text("\(movie.release_date)")
             }
         }
     }
 }
 
-struct MovieListCell_Previews: PreviewProvider {
-    static var previews: some View {
-        MovieListCell(movie: Movie.sampleMovie)
-    }
-}
+//struct MovieListCell_Previews: PreviewProvider {
+//    static var previews: some View {
+//        MovieListCell(movie: Movie.sampleMovie)
+//    }
+//}

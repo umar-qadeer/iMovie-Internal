@@ -8,11 +8,13 @@
 import SwiftUI
 
 struct MovieListView: View {
-    var movies = Movie.sampleMovies
     
+    @EnvironmentObject var coordinator: AppCoordinator
+    @ObservedObject var viewModel: MovieListViewModel
+
     var body: some View {
         NavigationStack {
-            List(movies) { movie in
+            List(viewModel.movies) { movie in
                 NavigationLink(value: movie, label: {
                     MovieListCell(movie: movie)
                 })
@@ -21,12 +23,15 @@ struct MovieListView: View {
             .navigationDestination(for: Movie.self) { moview in
                 MovieDetailView()
             }
+            .onAppear{
+                viewModel.fetchMovies()
+            }
         }
     }
 }
 
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        MovieListView()
-    }
-}
+//struct ContentView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        MovieListView()
+//    }
+//}

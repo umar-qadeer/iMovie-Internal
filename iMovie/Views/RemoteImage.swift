@@ -19,7 +19,7 @@ struct RemoteImage: View {
                     .resizable()
                     .aspectRatio(contentMode: .fit)
             } else {
-                Image(systemName: "movie-placeholder")
+                Image("movie-placeholder")
                     .resizable()
                     .aspectRatio(contentMode: .fit)
             }

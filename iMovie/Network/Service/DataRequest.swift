@@ -25,7 +25,7 @@ extension DataRequest {
     }
     
     var queryItems: [String : String] {
-        return [:]
+        return ["api_key": NetworkRoutes.apiKey]
     }
     
     var body: [String: Any?] {

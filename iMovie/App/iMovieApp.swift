@@ -9,14 +9,13 @@ import SwiftUI
 
 @main
 struct iMovieApp: App {
-    @StateObject var coordinator = AppCoordinator(appDIContainer: AppDIContainer())
+    var appDIContainer = AppDIContainer()
 
     var body: some Scene {
         WindowGroup {
-            NavigationView {
-                coordinator.makeView(for: coordinator.currentDestination ?? .movies)
-            }
-            .environmentObject(coordinator)
+            let diContainer = appDIContainer.makeMovieListDIContainer()
+            let view = diContainer.makeMovieListSwiftUIView()
+            view
         }
     }
 }

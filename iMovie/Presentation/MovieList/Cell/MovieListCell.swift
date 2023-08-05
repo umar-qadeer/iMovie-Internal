@@ -17,8 +17,8 @@ struct MovieListCell: View {
                 .frame(width: 100)
             
             VStack(alignment: .leading) {
-                Text(movie.title)
-                Text("\(movie.release_date)")
+                Text(movie.title ?? "")
+                Text("\(movie.release_date ?? "")")
             }
         }
     }

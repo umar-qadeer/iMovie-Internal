@@ -5,9 +5,10 @@ final class NetworkRoutes {
     // API base url
     static let baseURL: String = "https://api.themoviedb.org/3/"
     static let imageBaseURL: String = "https://image.tmdb.org/t/p/original"
+    static let apiKey: String = "c9856d0cb57c3f14bf75bdc6c063b8f3"
 
     struct EndPoints {
         static let movies = "discover/movie"
-        static let breedImages = "breed/%@/images"
+        static let movieDetails = "movie/"
     }
 }

@@ -8,32 +8,37 @@
 import SwiftUI
 
 struct MovieDetailView: View {
+    @ObservedObject var viewModel: MovieDetailsViewModel
+
     var body: some View {
         ScrollView {
             VStack() {
-                RemoteImage(urlString: nil)
-                    .frame(height: 250)
-                
+                RemoteImage(urlString: viewModel.movie?.backdrop_path)
+                    .frame(width: 150, height: 225)
+
                 VStack(alignment: .leading) {
-                    Text("The Shashank Redemption")
+                    Text(viewModel.movie?.title ?? "-")
                         .bold()
                         .font(.title)
-                    
-                    Text("1994")
+
+                    Text(viewModel.movie?.release_date ?? "-")
                         .font(.title2)
-                    
-                    Text("description")
+
+                    Text(viewModel.movie?.overview ?? "")
                         .font(.body)
                         .lineLimit(0)
                 }
             }
         }
-        .navigationTitle("Movie Detail")
+        .navigationTitle(viewModel.movie?.title ?? "-")
+        .onAppear{
+            viewModel.fetchMovieDetails()
+        }
     }
 }
 
-struct MovieDetailView_Previews: PreviewProvider {
-    static var previews: some View {
-        MovieDetailView()
-    }
-}
+//struct MovieDetailView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        MovieDetailView()
+//    }
+//}

@@ -8,30 +8,29 @@
 import SwiftUI
 
 struct MovieListView: View {
-    
-    @EnvironmentObject var coordinator: AppCoordinator
     @ObservedObject var viewModel: MovieListViewModel
-
+    
     var body: some View {
-        NavigationStack {
+        NavigationView {
             List(viewModel.movies) { movie in
-                NavigationLink(value: movie, label: {
-                    MovieListCell(movie: movie)
-                })
+                NavigationLink(
+                    destination: makeDetailView(for: movie),
+                    label: {
+                        MovieListCell(movie: movie)
+                    }
+                )
             }
             .navigationTitle("Movies")
-            .navigationDestination(for: Movie.self) { moview in
-                MovieDetailView()
-            }
-            .onAppear{
+            .onAppear {
                 viewModel.fetchMovies()
             }
         }
     }
+    
+    func makeDetailView(for movie: Movie) -> some View {
+        let appDIContainer = AppDIContainer()
+        let diContainer = appDIContainer.makeMovieDetailsDIContainer(movieId: "\(movie.id)")
+        return diContainer.makeMovieDetailsSwiftUIView()
+    }
 }
 
-//struct ContentView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        MovieListView()
-//    }
-//}

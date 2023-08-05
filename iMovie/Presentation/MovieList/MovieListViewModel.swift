@@ -6,18 +6,18 @@ final class MovieListViewModel: BaseViewModel, ObservableObject {
     // MARK: - Properties
     
     @Published var movies = [Movie]()
-    private let breedsRepository: BreedsRepositoryProtocol?
+    private let moviesRepository: MoviesRepositoryProtocol?
 
     // MARK: - Initializers
     
-    init(breedsRepository: BreedsRepositoryProtocol) {
-        self.breedsRepository = breedsRepository
+    init(moviesRepository: MoviesRepositoryProtocol) {
+        self.moviesRepository = moviesRepository
     }
     
     // MARK: - Functions
-    
+
     func fetchMovies() {
-        breedsRepository?.fetchMovies(completion: { [weak self] result in
+        moviesRepository?.fetchMovies(completion: { [weak self] result in
             
             switch result {
             case .success(let response):

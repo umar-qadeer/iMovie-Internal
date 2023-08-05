@@ -30,15 +30,9 @@ struct MovieDetailView: View {
                 }
             }
         }
-        .navigationTitle(viewModel.movie?.title ?? "-")
-        .onAppear{
-            viewModel.fetchMovieDetails()
+        .navigationTitle("Movie Detail")
+        .task {
+            await viewModel.fetchMovieDetails()
         }
     }
 }
-
-//struct MovieDetailView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        MovieDetailView()
-//    }
-//}

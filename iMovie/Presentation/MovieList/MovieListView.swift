@@ -21,12 +21,12 @@ struct MovieListView: View {
                 )
             }
             .navigationTitle("Movies")
-            .onAppear {
-                viewModel.fetchMovies()
+            .task {
+                await viewModel.fetchMovies()
             }
         }
     }
-    
+
     func makeDetailView(for movie: Movie) -> some View {
         let appDIContainer = AppDIContainer()
         let diContainer = appDIContainer.makeMovieDetailsDIContainer(movieId: "\(movie.id)")

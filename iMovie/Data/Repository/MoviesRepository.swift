@@ -2,8 +2,8 @@
 import Foundation
 
 protocol MoviesRepositoryProtocol: AnyObject {
-    func fetchMovies(completion: @escaping (Result<MovieResponse, Error>) -> Void)
-    func fetchMovieDetails(movieId: String, completion: @escaping (Result<Movie, Error>) -> Void)
+    func fetchMovies() async throws -> MovieResponse
+    func fetchMovieDetails(movieId: String) async throws -> Movie
 }
 
 final class MoviesRepository: MoviesRepositoryProtocol {
@@ -20,11 +20,11 @@ final class MoviesRepository: MoviesRepositoryProtocol {
 
     // MARK: - BreedsRepositoryProtocol
 
-    func fetchMovies(completion: @escaping (Result<MovieResponse, Error>) -> Void) {
-        networkService.request(MovieRequest(), completion: completion)
+    func fetchMovies() async throws -> MovieResponse {
+        return try await networkService.request(MovieRequest())
     }
 
-    func fetchMovieDetails(movieId: String, completion: @escaping (Result<Movie, Error>) -> Void) {
-        networkService.request(MovieDetailsRequest(movieId: movieId), completion: completion)
+    func fetchMovieDetails(movieId: String) async throws -> Movie {
+        return try await networkService.request(MovieDetailsRequest(movieId: movieId))
     }
 }

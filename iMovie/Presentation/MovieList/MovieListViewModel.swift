@@ -13,19 +13,18 @@ final class MovieListViewModel: BaseViewModel, ObservableObject {
     init(moviesRepository: MoviesRepositoryProtocol) {
         self.moviesRepository = moviesRepository
     }
-    
+
     // MARK: - Functions
 
-    func fetchMovies() {
-        moviesRepository?.fetchMovies(completion: { [weak self] result in
-            
-            switch result {
-            case .success(let response):
-                self?.movies = response.results
-            case .failure(let error):
-                print(error)
+    func fetchMovies() async {
+        do {
+            let response = try await moviesRepository?.fetchMovies()
+            DispatchQueue.main.async {
+                self.movies = response?.results ?? []
             }
-        })
+        } catch {
+            print(error)
+        }
     }
 }
 

@@ -14,7 +14,8 @@ struct MovieListCell: View {
     var body: some View {
         HStack {
             RemoteImage(urlString: NetworkRoutes.imageBaseURL + (movie.poster_path ?? ""))
-                .frame(width: 100)
+                .aspectRatio(contentMode: .fit)
+                .frame(width: 100, height: 150)
                 .id(movie)
 
             VStack(alignment: .leading) {

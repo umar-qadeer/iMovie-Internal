@@ -2,7 +2,7 @@
 import Foundation
 
 protocol MoviesRepositoryProtocol: AnyObject {
-    func fetchMovies() async throws -> MovieResponse
+    func fetchMovies(page: Int) async throws -> MovieResponse
     func fetchMovieDetails(movieId: String) async throws -> Movie
 }
 
@@ -20,8 +20,8 @@ final class MoviesRepository: MoviesRepositoryProtocol {
 
     // MARK: - BreedsRepositoryProtocol
 
-    func fetchMovies() async throws -> MovieResponse {
-        return try await networkService.request(MovieRequest())
+    func fetchMovies(page: Int) async throws -> MovieResponse {
+        return try await networkService.request(MovieRequest(page: page))
     }
 
     func fetchMovieDetails(movieId: String) async throws -> Movie {

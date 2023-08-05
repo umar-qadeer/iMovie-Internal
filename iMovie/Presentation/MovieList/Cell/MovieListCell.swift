@@ -13,9 +13,7 @@ struct MovieListCell: View {
     
     var body: some View {
         HStack {
-            Image(movie.image)
-                .resizable()
-                .aspectRatio(contentMode: .fit)
+            RemoteImage(urlString: nil)
                 .frame(width: 100)
             
             VStack(alignment: .leading) {

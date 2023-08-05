@@ -13,9 +13,14 @@ struct MovieListView: View {
     var body: some View {
         NavigationStack {
             List(movies) { movie in
-                MovieListCell(movie: movie)
+                NavigationLink(value: movie, label: {
+                    MovieListCell(movie: movie)
+                })
             }
             .navigationTitle("Movies")
+            .navigationDestination(for: Movie.self) { moview in
+                MovieDetailView()
+            }
         }
     }
 }

@@ -9,7 +9,26 @@ import SwiftUI
 
 struct MovieDetailView: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        ScrollView {
+            VStack() {
+                RemoteImage(urlString: nil)
+                    .frame(height: 250)
+                
+                VStack(alignment: .leading) {
+                    Text("The Shashank Redemption")
+                        .bold()
+                        .font(.title)
+                    
+                    Text("1994")
+                        .font(.title2)
+                    
+                    Text("description")
+                        .font(.body)
+                        .lineLimit(0)
+                }
+            }
+        }
+        .navigationTitle("Movie Detail")
     }
 }
 

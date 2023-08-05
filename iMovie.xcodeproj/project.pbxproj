@@ -44,6 +44,7 @@
 		4FB376472A7E304800F00E64 /* BreedDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FB376402A7E304800F00E64 /* BreedDetailViewController.swift */; };
 		4FB376482A7E304800F00E64 /* BreedDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FB376422A7E304800F00E64 /* BreedDetailTableViewCell.swift */; };
 		4FB3764B2A7E30B900F00E64 /* BaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FB3764A2A7E30B900F00E64 /* BaseViewModel.swift */; };
+		4FB3764E2A7E571F00F00E64 /* RemoteImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FB3764D2A7E571F00F00E64 /* RemoteImage.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -85,6 +86,7 @@
 		4FB376402A7E304800F00E64 /* BreedDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BreedDetailViewController.swift; sourceTree = "<group>"; };
 		4FB376422A7E304800F00E64 /* BreedDetailTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BreedDetailTableViewCell.swift; sourceTree = "<group>"; };
 		4FB3764A2A7E30B900F00E64 /* BaseViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewModel.swift; sourceTree = "<group>"; };
+		4FB3764D2A7E571F00F00E64 /* RemoteImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteImage.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,6 +122,7 @@
 				4FB375F42A7E299900F00E64 /* App */,
 				4FB3762E2A7E2F6F00F00E64 /* Coordinator */,
 				4FB376292A7E2F6F00F00E64 /* DIContainer */,
+				4FB3764C2A7E56FF00F00E64 /* Views */,
 				4FB375F22A7E296400F00E64 /* Presentation */,
 				4FB3760E2A7E2D5500F00E64 /* Models */,
 				4FB376112A7E2DAF00F00E64 /* Common */,
@@ -358,6 +361,14 @@
 			path = Base;
 			sourceTree = "<group>";
 		};
+		4FB3764C2A7E56FF00F00E64 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				4FB3764D2A7E571F00F00E64 /* RemoteImage.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -456,6 +467,7 @@
 				4FB376312A7E2F6F00F00E64 /* AppDIContainer.swift in Sources */,
 				4FB376362A7E2F6F00F00E64 /* Coordinator.swift in Sources */,
 				4FB376062A7E2CBE00F00E64 /* BreedImagesRequest.swift in Sources */,
+				4FB3764E2A7E571F00F00E64 /* RemoteImage.swift in Sources */,
 				4FB376272A7E2F3E00F00E64 /* FavouriteBreedImage.swift in Sources */,
 				4FB3760C2A7E2CBE00F00E64 /* ErrorResponse.swift in Sources */,
 				4FB375F82A7E2A1200F00E64 /* MovieDetailView.swift in Sources */,

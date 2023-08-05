@@ -1,0 +1,33 @@
+//
+//  MovieListCell.swift
+//  iMovie
+//
+//  Created by Muhammad Umar on 05/08/2023.
+//
+
+import SwiftUI
+
+struct MovieListCell: View {
+    
+    @State var movie: Movie
+    
+    var body: some View {
+        HStack {
+            Image(movie.image)
+                .resizable()
+                .aspectRatio(contentMode: .fit)
+                .frame(width: 100)
+            
+            VStack(alignment: .leading) {
+                Text(movie.title)
+                Text("\(movie.year)")
+            }
+        }
+    }
+}
+
+struct MovieListCell_Previews: PreviewProvider {
+    static var previews: some View {
+        MovieListCell(movie: Movie.sampleMovie)
+    }
+}

@@ -17,6 +17,7 @@ struct MovieListView: View {
                     destination: makeDetailView(for: movie),
                     label: {
                         MovieListCell(movie: movie)
+                            .id(movie)
                     }
                 )
             }

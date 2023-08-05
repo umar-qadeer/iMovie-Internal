@@ -10,12 +10,13 @@ import SwiftUI
 struct MovieListCell: View {
     
     @State var movie: Movie
-    
+
     var body: some View {
         HStack {
             RemoteImage(urlString: NetworkRoutes.imageBaseURL + (movie.poster_path ?? ""))
                 .frame(width: 100)
-            
+                .id(movie)
+
             VStack(alignment: .leading) {
                 Text(movie.title ?? "")
                 Text("\(movie.release_date ?? "")")
@@ -23,9 +24,3 @@ struct MovieListCell: View {
         }
     }
 }
-
-//struct MovieListCell_Previews: PreviewProvider {
-//    static var previews: some View {
-//        MovieListCell(movie: Movie.sampleMovie)
-//    }
-//}

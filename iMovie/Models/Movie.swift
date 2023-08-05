@@ -1,11 +1,11 @@
 //
-//  ContentView.swift
+//  Movie.swift
 //  iMovie
 //
 //  Created by Muhammad Umar on 05/08/2023.
 //
 
-import SwiftUI
+import Foundation
 
 struct Movie: Identifiable {
     var id = UUID()
@@ -22,23 +22,4 @@ extension Movie {
         Movie(image: "movie-placeholder", title: "Shashank Redemption", year: 1994),
         Movie(image: "movie-placeholder", title: "Shashank Redemption", year: 1994)
     ]
-}
-
-struct MoviesListView: View {
-    var movies = Movie.sampleMovies
-    
-    var body: some View {
-        NavigationStack {
-            List(movies) { movie in
-                MovieListCell(movie: movie)
-            }
-            .navigationTitle("Movies")
-        }
-    }
-}
-
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        MoviesListView()
-    }
 }

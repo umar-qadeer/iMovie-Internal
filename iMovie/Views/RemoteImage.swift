@@ -37,9 +37,3 @@ struct RemoteImage: View {
         }
     }
 }
-
-struct AsyncImage_Previews: PreviewProvider {
-    static var previews: some View {
-        RemoteImage(urlString: nil)
-    }
-}

@@ -13,8 +13,9 @@ struct MovieDetailView: View {
     var body: some View {
         ScrollView {
             VStack() {
-                RemoteImage(urlString: viewModel.movie?.backdrop_path)
-                    .frame(width: 150, height: 225)
+                RemoteImage(urlString: NetworkRoutes.imageBaseURL + (viewModel.movie?.backdrop_path ?? ""))
+                    .frame(height: 225)
+                    .id(viewModel.movie)
 
                 VStack(alignment: .leading) {
                     Text(viewModel.movie?.title ?? "-")

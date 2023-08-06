@@ -33,6 +33,7 @@
 		4FB3764B2A7E30B900F00E64 /* BaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FB3764A2A7E30B900F00E64 /* BaseViewModel.swift */; };
 		4FB3764E2A7E571F00F00E64 /* RemoteImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FB3764D2A7E571F00F00E64 /* RemoteImage.swift */; };
 		4FB376502A7E90B100F00E64 /* LoadingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FB3764F2A7E90B100F00E64 /* LoadingCell.swift */; };
+		4FB376532A7FAB5200F00E64 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FB376522A7FAB5200F00E64 /* LoadingView.swift */; };
 		68AA94DE2A7F764A00E17F84 /* sampleData.json in Resources */ = {isa = PBXBuildFile; fileRef = 68AA94DD2A7F763C00E17F84 /* sampleData.json */; };
 		68AA94E02A7F767A00E17F84 /* MockDataGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68AA94DF2A7F767A00E17F84 /* MockDataGenerator.swift */; };
 		68AA94E22A7F77F500E17F84 /* MoviesRepositoryMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68AA94E12A7F77F500E17F84 /* MoviesRepositoryMock.swift */; };
@@ -82,6 +83,8 @@
 		4FB3764A2A7E30B900F00E64 /* BaseViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewModel.swift; sourceTree = "<group>"; };
 		4FB3764D2A7E571F00F00E64 /* RemoteImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteImage.swift; sourceTree = "<group>"; };
 		4FB3764F2A7E90B100F00E64 /* LoadingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingCell.swift; sourceTree = "<group>"; };
+		4FB376512A7EB07200F00E64 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		4FB376522A7FAB5200F00E64 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		68AA94D32A7EB36300E17F84 /* iMovieTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iMovieTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		68AA94DD2A7F763C00E17F84 /* sampleData.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = sampleData.json; sourceTree = "<group>"; };
 		68AA94DF2A7F767A00E17F84 /* MockDataGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockDataGenerator.swift; sourceTree = "<group>"; };
@@ -89,7 +92,6 @@
 		68AA94E32A7F7D9700E17F84 /* NetworkServiceMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkServiceMock.swift; sourceTree = "<group>"; };
 		68AA94E62A7F7EE000E17F84 /* MoviesViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesViewModelTests.swift; sourceTree = "<group>"; };
 		68AA94E92A7F845000E17F84 /* MoviesModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesModelTest.swift; sourceTree = "<group>"; };
-		4FB376512A7EB07200F00E64 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		68EECD7A2A7E628C00506F83 /* MovieDetailsRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailsRequest.swift; sourceTree = "<group>"; };
 		68EECD7C2A7E67E000506F83 /* MovieDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailsViewModel.swift; sourceTree = "<group>"; };
 		68EECD7E2A7E741400506F83 /* MovieDetailsDIContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailsDIContainer.swift; sourceTree = "<group>"; };
@@ -332,6 +334,7 @@
 			isa = PBXGroup;
 			children = (
 				4FB3764D2A7E571F00F00E64 /* RemoteImage.swift */,
+				4FB376522A7FAB5200F00E64 /* LoadingView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -479,6 +482,7 @@
 				4FB3761B2A7E2DAF00F00E64 /* AccessibilityIdentifier.swift in Sources */,
 				4FB376082A7E2CBE00F00E64 /* Reachability.swift in Sources */,
 				4FB3760B2A7E2CBE00F00E64 /* DataRequest.swift in Sources */,
+				4FB376532A7FAB5200F00E64 /* LoadingView.swift in Sources */,
 				4FB376382A7E302000F00E64 /* MoviesRepository.swift in Sources */,
 				4FB376102A7E2D6C00F00E64 /* Movie.swift in Sources */,
 				4FB376092A7E2CBE00F00E64 /* ImageDownloadService.swift in Sources */,

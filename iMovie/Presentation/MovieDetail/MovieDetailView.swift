@@ -12,27 +12,33 @@ struct MovieDetailView: View {
     @ObservedObject var viewModel: MovieDetailsViewModel
 
     var body: some View {
-        ScrollView {
-            GeometryReader { geometry in
-                VStack() {
-                    RemoteImage(urlString: viewModel.movie?.backdrop_path)
-                        .aspectRatio(contentMode: .fit)
-                        .frame(width: geometry.size.width, height: geometry.size.width * 9/16)
-                        .id(viewModel.movie)
-                    
-                    VStack(alignment: .leading) {
-                        Text(viewModel.movie?.title ?? "-")
-                            .bold()
-                            .font(.title)
+        ZStack {
+            ScrollView {
+                GeometryReader { geometry in
+                    VStack() {
+                        RemoteImage(urlString: viewModel.movie?.backdrop_path)
+                            .aspectRatio(contentMode: .fit)
+                            .frame(width: geometry.size.width, height: geometry.size.width * 9/16)
+                            .id(viewModel.movie)
                         
-                        Text(viewModel.movie?.release_date ?? "-")
-                            .font(.title2)
-                        
-                        Text(viewModel.movie?.overview ?? "")
-                            .font(.body)
-                            .lineLimit(0)
+                        VStack(alignment: .leading) {
+                            Text(viewModel.movie?.title ?? "-")
+                                .bold()
+                                .font(.title)
+                            
+                            Text(viewModel.movie?.release_date ?? "-")
+                                .font(.title2)
+                            
+                            Text(viewModel.movie?.overview ?? "")
+                                .font(.body)
+                                .lineLimit(0)
+                        }
                     }
                 }
+            }
+            
+            if viewModel.isLoading {
+                LoadingView()
             }
         }
         .navigationTitle(Strings.Titles.movieDetail)

@@ -12,28 +12,35 @@ struct MovieListView: View {
     @ObservedObject var viewModel: MovieListViewModel
     
     var body: some View {
-        NavigationStack {
-            List {
-                ForEach(viewModel.movies) { movie in
-                    NavigationLink(
-                        destination: makeDetailView(for: movie),
-                        label: {
-                            MovieListCell(movie: movie)
-                        }
-                    )
+        
+        ZStack {
+            NavigationStack {
+                List {
+                    ForEach(viewModel.movies) { movie in
+                        NavigationLink(
+                            destination: makeDetailView(for: movie),
+                            label: {
+                                MovieListCell(movie: movie)
+                            }
+                        )
+                    }
+                    
+                    if viewModel.currentPage < viewModel.totalPages {
+                        LoadingCell()
+                            .onAppear {
+                                viewModel.fetchMovies()
+                            }
+                    }
                 }
-                
-                if viewModel.currentPage < viewModel.totalPages {
-                    LoadingCell()
-                        .onAppear {
-                            viewModel.fetchMovies()
-                        }
-                }
+                .navigationTitle(Strings.Titles.movies)
             }
-            .navigationTitle(Strings.Titles.movies)
-        }
-        .onAppear {
-            viewModel.fetchMovies()
+            .onAppear {
+                viewModel.fetchMovies()
+            }
+            
+            if viewModel.isLoading {
+                LoadingView()
+            }
         }
         .alert(Strings.Alert.error, isPresented: $viewModel.isErrorPresented, actions: {
             Button(Strings.Alert.okay, role: .cancel) { }

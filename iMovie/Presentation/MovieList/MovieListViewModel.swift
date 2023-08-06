@@ -6,8 +6,8 @@ final class MovieListViewModel: BaseViewModel, ObservableObject {
     
     @Published var movies = [Movie]()
     @Published var isErrorPresented = false
+    @Published var isLoading = false
     private let moviesRepository: MoviesRepositoryProtocol?
-    private var isLoading = false
     var currentPage = 1
     var totalPages = 1
     var error: Error?
@@ -30,19 +30,21 @@ final class MovieListViewModel: BaseViewModel, ObservableObject {
         Task {
             do {
                 let response = try await moviesRepository?.fetchMovies(page: currentPage)
-                isLoading = false
-                currentPage += 1
                 
-                if let response {
-                    totalPages = response.total_pages
+                DispatchQueue.main.async { [weak self] in
+                    self?.isLoading = false
+                    self?.currentPage += 1
                     
-                    DispatchQueue.main.async { [weak self] in
+                    if let response {
+                        self?.totalPages = response.total_pages
                         self?.movies.append(contentsOf: response.results)
                     }
                 }
             } catch {
-                self.error = error
-                self.isErrorPresented = true
+                DispatchQueue.main.async { [weak self] in
+                    self?.error = error
+                    self?.isErrorPresented = true
+                }
             }
         }
     }

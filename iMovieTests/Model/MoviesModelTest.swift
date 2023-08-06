@@ -14,7 +14,6 @@ final class MoviesModelTest: XCTestCase {
         XCTAssertEqual(movies.results.count, 20)
         XCTAssertEqual(movies.results.first?.id, 346698, "First movie's ID should be 346698")
         XCTAssertEqual(movies.results.first?.title, "Barbie", "First movie's title should be Barbie")
-        
     }
 }
 

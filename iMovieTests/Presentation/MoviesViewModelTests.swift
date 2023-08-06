@@ -22,7 +22,7 @@ final class MoviesViewModelTests: XCTestCase {
         expectation?.expectedFulfillmentCount = 1
 
         let moviesRepositoryMock = MoviesRepositoryMock()
-        let viewModel = MovieListViewModel(moviesRepository: moviesRepositoryMock)
+        let viewModel = await MovieListViewModel(moviesRepository: moviesRepositoryMock)
 
         // when
         await viewModel.fetchMovies()
@@ -33,6 +33,10 @@ final class MoviesViewModelTests: XCTestCase {
 
         // then
         await waitForExpectations(timeout: 5, handler: nil)
-        XCTAssertEqual((viewModel.movies.count ), 20)
+
+        // Access 'movies' property within a main actor context
+        await MainActor.run {
+            XCTAssertEqual(viewModel.movies.count, 20)
+        }
     }
 }

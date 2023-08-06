@@ -51,7 +51,7 @@ struct MovieListView: View {
     
     func makeDetailView(for movie: Movie) -> some View {
         let appDIContainer = AppDIContainer()
-        let diContainer = appDIContainer.makeMovieDetailsDIContainer(movieId: movie.id)
-        return diContainer.makeMovieDetailsSwiftUIView()
+        let diContainer = appDIContainer.makeMovieDetailDIContainer(movieId: movie.id)
+        return diContainer.makeMovieDetailView()
     }
 }

@@ -25,6 +25,6 @@ final class MoviesRepository: MoviesRepositoryProtocol {
     }
 
     func fetchMovieDetail(movieId: Int) async throws -> Movie {
-        return try await networkService.request(MovieDetailsRequest(movieId: movieId))
+        return try await networkService.request(MovieDetailRequest(movieId: movieId))
     }
 }

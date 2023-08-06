@@ -27,11 +27,11 @@ final class MovieListDIContainer {
         return MovieListViewModel(moviesRepository: makeMovieListRepository())
     }
 
-    // MARK: - ViewController
+    // MARK: - View
 
-    @MainActor func makeMovieListSwiftUIView() -> MovieListView {
-        let viewModel = makeMovieListViewModel()
-        let view = MovieListView(viewModel: viewModel)
-        return view
+    @MainActor func makeMovieListView() -> MovieListView {
+        let movieListViewModel = makeMovieListViewModel()
+        let movieListView = MovieListView(viewModel: movieListViewModel)
+        return movieListView
     }
 }

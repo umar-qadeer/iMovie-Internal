@@ -9,6 +9,6 @@ final class NetworkRoutes {
 
     struct EndPoints {
         static let movies = "discover/movie"
-        static let movieDetails = "movie/"
+        static let movieDetail = "movie/"
     }
 }

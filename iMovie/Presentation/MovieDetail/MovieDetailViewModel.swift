@@ -1,7 +1,7 @@
 
 import Foundation
 
-@MainActor final class MovieDetailsViewModel: ObservableObject {
+@MainActor final class MovieDetailViewModel: ObservableObject {
     
     // MARK: - Properties
     

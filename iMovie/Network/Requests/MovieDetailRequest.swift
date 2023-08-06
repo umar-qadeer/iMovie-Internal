@@ -1,13 +1,13 @@
 
 import Foundation
 
-struct MovieDetailsRequest: DataRequest {
+struct MovieDetailRequest: DataRequest {
 
     let movieId: Int
 
     var url: String {
         let baseURL: String = NetworkRoutes.baseURL
-        let path: String = NetworkRoutes.EndPoints.movieDetails
+        let path: String = NetworkRoutes.EndPoints.movieDetail
         return baseURL + path + "\(movieId)"
     }
 

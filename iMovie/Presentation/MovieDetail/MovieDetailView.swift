@@ -9,7 +9,7 @@ import SwiftUI
 
 struct MovieDetailView: View {
     
-    @ObservedObject var viewModel: MovieDetailsViewModel
+    @ObservedObject var viewModel: MovieDetailViewModel
 
     var body: some View {
         ZStack {

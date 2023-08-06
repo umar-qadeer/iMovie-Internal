@@ -32,10 +32,7 @@ final class MoviesViewModelTests: XCTestCase {
 
         // when
         await viewModel.fetchMovies()
-
-        DispatchQueue.main.async {
-            self.expectation?.fulfill()
-        }
+        self.expectation?.fulfill()
 
         // then
         await waitForExpectations(timeout: 5, handler: nil)

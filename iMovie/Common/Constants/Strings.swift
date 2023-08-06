@@ -12,10 +12,6 @@ struct Strings {
         static let pullToRefresh = "Pull to refresh"
     }
     
-    struct Placeholder {
-        static let searchBreedName = "Search breed name"
-    }
-    
     struct Alert {
         static let success = "Success"
         static let error =  "Error"

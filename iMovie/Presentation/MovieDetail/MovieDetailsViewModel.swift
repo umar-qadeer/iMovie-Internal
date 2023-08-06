@@ -6,8 +6,10 @@ final class MovieDetailsViewModel: BaseViewModel, ObservableObject {
     // MARK: - Properties
     
     @Published var movie: Movie?
+    @Published var isErrorPresented = false
     private let moviesRepository: MoviesRepositoryProtocol?
     var movieId: Int
+    var error: Error?
 
     // MARK: - Initializers
 
@@ -26,7 +28,8 @@ final class MovieDetailsViewModel: BaseViewModel, ObservableObject {
                     self.movie = response
                 }
             } catch {
-                print(error)
+                self.error = error
+                self.isErrorPresented = true
             }
         }
     }

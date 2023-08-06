@@ -9,8 +9,10 @@ import SwiftUI
 
 struct LoadingCell: View {
     var body: some View {
-        VStack {
+        HStack(alignment: .center) {
+            Spacer()
             ProgressView()
+            Spacer()
         }
     }
 }

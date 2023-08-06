@@ -19,9 +19,9 @@ class MockDataGenerator {
         return response
     }
 
-    func getMockMovie(id: String) throws -> Movie {
+    func getMockMovie(id: Int) throws -> Movie {
         let movies = try getMockMovies().results
-        return movies.first(where: {"\($0.id)" == id})!
+        return movies.first(where: {$0.id == id})!
     }
 
     func getMockMoviesData() -> Data? {

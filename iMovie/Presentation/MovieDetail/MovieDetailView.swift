@@ -39,5 +39,10 @@ struct MovieDetailView: View {
         .onAppear {
             viewModel.fetchMovieDetail()
         }
+        .alert(Strings.Alert.error, isPresented: $viewModel.isErrorPresented, actions: {
+            Button(Strings.Alert.okay, role: .cancel) { }
+        }, message: {
+            Text(viewModel.error?.localizedDescription ?? "")
+        })
     }
 }

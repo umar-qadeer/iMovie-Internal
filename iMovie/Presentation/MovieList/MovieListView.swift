@@ -35,6 +35,11 @@ struct MovieListView: View {
         .onAppear {
             viewModel.fetchMovies()
         }
+        .alert(Strings.Alert.error, isPresented: $viewModel.isErrorPresented, actions: {
+            Button(Strings.Alert.okay, role: .cancel) { }
+        }, message: {
+            Text(viewModel.error?.localizedDescription ?? "")
+        })
     }
     
     func makeDetailView(for movie: Movie) -> some View {

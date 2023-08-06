@@ -5,10 +5,12 @@ final class MovieListViewModel: BaseViewModel, ObservableObject {
     // MARK: - Properties
     
     @Published var movies = [Movie]()
+    @Published var isErrorPresented = false
     private let moviesRepository: MoviesRepositoryProtocol?
     private var isLoading = false
     var currentPage = 1
     var totalPages = 1
+    var error: Error?
 
     // MARK: - Initializers
     
@@ -39,7 +41,8 @@ final class MovieListViewModel: BaseViewModel, ObservableObject {
                     }
                 }
             } catch {
-                print(error)
+                self.error = error
+                self.isErrorPresented = true
             }
         }
     }

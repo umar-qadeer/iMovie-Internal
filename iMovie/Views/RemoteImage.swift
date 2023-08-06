@@ -31,7 +31,7 @@ struct ResizableImage: View {
     var image: Image?
     
     var body: some View {
-        image?.resizable() ?? Image("movie-placeholder").resizable()
+        image?.resizable() ?? Image.moviePlaceholder.resizable()
     }
 }
 

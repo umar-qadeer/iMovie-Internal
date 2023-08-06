@@ -10,7 +10,7 @@ import SwiftUI
 struct SplashView: View {
     
     var body: some View {
-        Image("movie-splash")
+        Image.movieSplash
             .resizable()
             .frame(width: 200, height: 200)
     }

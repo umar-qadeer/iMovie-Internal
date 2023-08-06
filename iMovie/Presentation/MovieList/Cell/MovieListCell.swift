@@ -16,9 +16,12 @@ struct MovieListCell: View {
             RemoteImage(urlString: movie.poster_path)
                 .aspectRatio(contentMode: .fit)
                 .frame(width: 100, height: 150)
+                .cornerRadius(8)
 
             VStack(alignment: .leading) {
                 Text(movie.title ?? "")
+                    .bold()
+                    .font(.title2)
                 Text("\(movie.release_date ?? "")")
             }
         }

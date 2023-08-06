@@ -4,8 +4,8 @@ import Foundation
 struct Strings {
     
     struct Titles {
-        static let breeds = "Breeds"
-        static let favourites = "Favourites"
+        static let movies = "Movies"
+        static let movieDetail = "Movie Detail"
     }
     
     struct List {

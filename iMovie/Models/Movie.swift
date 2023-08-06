@@ -14,7 +14,7 @@ struct MovieResponse: Codable {
     let total_results: Int
 }
 
-struct Movie: Codable, Hashable, Identifiable {
+struct Movie: Codable, Identifiable {
     
     let id: Int
     let adult: Bool?
@@ -42,24 +42,24 @@ struct Movie: Codable, Hashable, Identifiable {
     let vote_count: Int?
 }
 
-struct Genre: Codable, Hashable {
+struct Genre: Codable {
     let id: Int
     let name: String
 }
 
-struct ProductionCompany: Codable, Hashable {
+struct ProductionCompany: Codable {
     let id: Int
     let logo_path: String?
     let name: String
     let origin_country: String?
 }
 
-struct ProductionCountry: Codable, Hashable {
+struct ProductionCountry: Codable {
     let iso_3166_1: String
     let name: String
 }
 
-struct SpokenLanguage: Codable, Hashable {
+struct SpokenLanguage: Codable {
     let english_name: String
     let iso_639_1: String
     let name: String

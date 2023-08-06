@@ -2,43 +2,27 @@
 import UIKit
 
 final class ImageDownloadService {
-    private static var imageCache = NSCache<AnyObject, AnyObject>()
+    private static var imageCache = NSCache<NSString, UIImage>()
     
-    class func getImage(urlString: String?, completion: @escaping (UIImage?, String?) -> ()) {
+    class func getImage(fromUrlString urlString: String, completion: @escaping (UIImage?) -> ()) {
+        let cacheKey = NSString(string: urlString)
         
-        guard let urlString = urlString else {
-            DispatchQueue.main.async(execute: { () -> Void in
-                completion(nil, nil)
-            })
-            return
-        }
-        
-        if let image = imageCache.object(forKey: urlString as AnyObject) as? UIImage {
-            completion(image, urlString)
-            
+        if let image = imageCache.object(forKey: cacheKey) {
+            completion(image)
         } else {
-            
             if let url = URL(string: urlString) {
                 URLSession.shared.dataTask(with: url) {(data, response, error) in
                     if error == nil,
                        let data = data,
                        let image = UIImage(data: data) {
-                        self.imageCache.setObject(image, forKey: (urlString as AnyObject))
-                        
-                        DispatchQueue.main.async(execute: { () -> Void in
-                            completion(image, urlString)
-                        })
+                        self.imageCache.setObject(image, forKey: (cacheKey))
+                        completion(image)
                     } else {
-                        DispatchQueue.main.async(execute: { () -> Void in
-                            completion(nil, nil)
-                        })
+                        completion(nil)
                     }
                 }.resume()
-                
             } else {
-                DispatchQueue.main.async(execute: { () -> Void in
-                    completion(nil, nil)
-                })
+                completion(nil)
             }
         }
     }

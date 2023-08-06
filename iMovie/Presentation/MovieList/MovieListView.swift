@@ -19,28 +19,27 @@ struct MovieListView: View {
                         destination: makeDetailView(for: movie),
                         label: {
                             MovieListCell(movie: movie)
-                                .id(movie)
                         }
                     )
                 }
                 
                 if viewModel.currentPage < viewModel.totalPages {
                     LoadingCell()
-                        .task {
-                            await viewModel.fetchMovies()
+                        .onAppear {
+                            viewModel.fetchMovies()
                         }
                 }
             }
-            .navigationTitle("Movies")
-            .task {
-                await viewModel.fetchMovies()
-            }
+            .navigationTitle(Strings.Titles.movies)
+        }
+        .onAppear {
+            viewModel.fetchMovies()
         }
     }
     
     func makeDetailView(for movie: Movie) -> some View {
         let appDIContainer = AppDIContainer()
-        let diContainer = appDIContainer.makeMovieDetailsDIContainer(movieId: "\(movie.id)")
+        let diContainer = appDIContainer.makeMovieDetailsDIContainer(movieId: movie.id)
         return diContainer.makeMovieDetailsSwiftUIView()
     }
 }

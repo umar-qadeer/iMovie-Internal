@@ -9,12 +9,12 @@ import Foundation
 
 struct MovieDetailsRequest: DataRequest {
 
-    let movieId: String
+    let movieId: Int
 
     var url: String {
         let baseURL: String = NetworkRoutes.baseURL
         let path: String = NetworkRoutes.EndPoints.movieDetails
-        return baseURL + path + movieId
+        return baseURL + path + "\(movieId)"
     }
 
     var method: HTTPMethod {

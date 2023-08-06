@@ -18,27 +18,29 @@ final class MovieListViewModel: BaseViewModel, ObservableObject {
 
     // MARK: - Functions
     
-    func fetchMovies() async {
+    func fetchMovies() {
         guard !isLoading, currentPage <= totalPages else {
             return
         }
         
         isLoading = true
         
-        do {
-            let response = try await moviesRepository?.fetchMovies(page: currentPage)
-            isLoading = false
-            currentPage += 1
-            
-            if let response {
-                totalPages = response.total_pages
+        Task {
+            do {
+                let response = try await moviesRepository?.fetchMovies(page: currentPage)
+                isLoading = false
+                currentPage += 1
                 
-                DispatchQueue.main.async { [weak self] in
-                    self?.movies.append(contentsOf: response.results)
+                if let response {
+                    totalPages = response.total_pages
+                    
+                    DispatchQueue.main.async { [weak self] in
+                        self?.movies.append(contentsOf: response.results)
+                    }
                 }
+            } catch {
+                print(error)
             }
-        } catch {
-            print(error)
         }
     }
 }

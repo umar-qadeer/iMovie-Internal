@@ -13,9 +13,9 @@ struct MovieDetailView: View {
     var body: some View {
         ScrollView {
             VStack() {
-                RemoteImage(urlString: NetworkRoutes.imageBaseURL + (viewModel.movie?.backdrop_path ?? ""))
+                RemoteImage(urlString: viewModel.movie?.backdrop_path)
+                    .aspectRatio(contentMode: .fit)
                     .frame(height: 225)
-                    .id(viewModel.movie)
 
                 VStack(alignment: .leading) {
                     Text(viewModel.movie?.title ?? "-")
@@ -31,9 +31,9 @@ struct MovieDetailView: View {
                 }
             }
         }
-        .navigationTitle("Movie Detail")
-        .task {
-            await viewModel.fetchMovieDetails()
+        .navigationTitle(Strings.Titles.movieDetail)
+        .onAppear {
+            viewModel.fetchMovieDetail()
         }
     }
 }

@@ -12,7 +12,7 @@ final class AppDIContainer {
         return MovieListDIContainer(dependencies: dependencies)
     }
 
-    func makeMovieDetailsDIContainer(movieId: String) -> MovieDetailsDIContainer {
+    func makeMovieDetailsDIContainer(movieId: Int) -> MovieDetailsDIContainer {
         let dependencies = MovieDetailsDIContainer.Dependencies(networkService: networkService, movieId: movieId)
         return MovieDetailsDIContainer(dependencies: dependencies)
     }

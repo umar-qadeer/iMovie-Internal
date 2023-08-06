@@ -5,7 +5,7 @@ final class MovieDetailsDIContainer {
 
     struct Dependencies {
         let networkService: NetworkService
-        let movieId: String
+        let movieId: Int
     }
 
     private let dependencies: Dependencies

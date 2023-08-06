@@ -36,7 +36,6 @@ import Foundation
         Task {
             do {
                 let response = try await moviesRepository?.fetchMovies(page: currentPage)
-                self.isLoading = false
                 self.currentPage += 1
                 
                 if let response {
@@ -47,6 +46,8 @@ import Foundation
                 self.error = error
                 self.isErrorPresented = true
             }
+            
+            self.isLoading = false
         }
     }
 }

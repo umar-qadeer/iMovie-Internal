@@ -10,4 +10,5 @@ import SwiftUI
 extension Image {
     static let moviePlaceholder = Image("movie-placeholder")
     static let movieSplash = Image("movie-splash")
+    static let movieReel = Image("movie-reel")
 }

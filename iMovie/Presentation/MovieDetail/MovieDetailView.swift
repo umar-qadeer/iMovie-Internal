@@ -63,6 +63,10 @@ struct MovieDetailView: View {
                 }
             }
             
+            if viewModel.movie == nil {
+                EmptyView()
+            }
+            
             if viewModel.isLoading {
                 LoadingView()
             }

@@ -12,9 +12,8 @@ struct MovieListView: View {
     @ObservedObject var viewModel: MovieListViewModel
     
     var body: some View {
-        
-        ZStack {
-            NavigationStack {
+        NavigationStack {
+            ZStack {
                 List {
                     ForEach(viewModel.movies) { movie in
                         NavigationLink(
@@ -32,14 +31,18 @@ struct MovieListView: View {
                             }
                     }
                 }
-                .navigationTitle(Strings.Titles.movies)
+                
+                if viewModel.movies.isEmpty {
+                    EmptyView()
+                }
+                
+                if viewModel.isLoading && viewModel.currentPage == 1 {
+                    LoadingView()
+                }
             }
+            .navigationTitle(Strings.Titles.movies)
             .onAppear {
                 viewModel.fetchMovies()
-            }
-            
-            if viewModel.isLoading && viewModel.currentPage == 1 {
-                LoadingView()
             }
         }
         .alert(Strings.Alert.error, isPresented: $viewModel.isErrorPresented, actions: {

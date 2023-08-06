@@ -32,12 +32,13 @@ import Foundation
         Task {
             do {
                 let response = try await moviesRepository?.fetchMovieDetail(movieId: movieId)
-                self.isLoading = false
                 self.movie = response
             } catch {
                 self.error = error
                 self.isErrorPresented = true
             }
+            
+            self.isLoading = false
         }
     }
 }

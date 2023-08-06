@@ -13,23 +13,25 @@ struct MovieDetailView: View {
 
     var body: some View {
         ScrollView {
-            VStack() {
-                RemoteImage(urlString: viewModel.movie?.backdrop_path)
-                    .aspectRatio(contentMode: .fit)
-                    .frame(height: 225)
-                    .id(viewModel.movie)
-
-                VStack(alignment: .leading) {
-                    Text(viewModel.movie?.title ?? "-")
-                        .bold()
-                        .font(.title)
-
-                    Text(viewModel.movie?.release_date ?? "-")
-                        .font(.title2)
-
-                    Text(viewModel.movie?.overview ?? "")
-                        .font(.body)
-                        .lineLimit(0)
+            GeometryReader { geometry in
+                VStack() {
+                    RemoteImage(urlString: viewModel.movie?.backdrop_path)
+                        .aspectRatio(contentMode: .fit)
+                        .frame(width: geometry.size.width, height: geometry.size.width * 9/16)
+                        .id(viewModel.movie)
+                    
+                    VStack(alignment: .leading) {
+                        Text(viewModel.movie?.title ?? "-")
+                            .bold()
+                            .font(.title)
+                        
+                        Text(viewModel.movie?.release_date ?? "-")
+                            .font(.title2)
+                        
+                        Text(viewModel.movie?.overview ?? "")
+                            .font(.body)
+                            .lineLimit(0)
+                    }
                 }
             }
         }

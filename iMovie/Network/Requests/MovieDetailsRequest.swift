@@ -1,9 +1,3 @@
-//
-//  MovieDetailsRequest.swift
-//  iMovie
-//
-//  Created by Umair Afzal on 05/08/2023.
-//
 
 import Foundation
 

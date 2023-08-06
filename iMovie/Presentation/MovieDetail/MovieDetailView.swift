@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct MovieDetailView: View {
+    
     @ObservedObject var viewModel: MovieDetailsViewModel
 
     var body: some View {
@@ -16,6 +17,7 @@ struct MovieDetailView: View {
                 RemoteImage(urlString: viewModel.movie?.backdrop_path)
                     .aspectRatio(contentMode: .fit)
                     .frame(height: 225)
+                    .id(viewModel.movie)
 
                 VStack(alignment: .leading) {
                     Text(viewModel.movie?.title ?? "-")

@@ -16,7 +16,7 @@ struct MovieDetailView: View {
             ScrollView {
                 GeometryReader { geometry in
                     VStack() {
-                        RemoteImage(urlString: viewModel.movie?.backdrop_path)
+                        RemoteImage(urlString: viewModel.movie?.backdrop_path, imageQualty: .hq)
                             .aspectRatio(contentMode: .fit)
                             .frame(width: geometry.size.width, height: geometry.size.width * 9/16)
                             .id(viewModel.movie)

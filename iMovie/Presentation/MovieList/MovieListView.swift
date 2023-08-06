@@ -38,7 +38,7 @@ struct MovieListView: View {
                 viewModel.fetchMovies()
             }
             
-            if viewModel.isLoading {
+            if viewModel.isLoading && viewModel.currentPage == 1 {
                 LoadingView()
             }
         }

@@ -7,20 +7,27 @@
 
 import SwiftUI
 
+enum ImageQuality: String {
+    case normal = "w300"
+    case hq = "w1280"
+}
+
 struct RemoteImage: View {
     
     @StateObject var imageLoader = ImageLoader()
-    let urlString: String?
+    var urlString: String?
+    var imageQualty: ImageQuality = .normal
     
     var body: some View {
         ResizableImage(image: imageLoader.image)
             .onAppear {
-                imageLoader.load(fromURLString: urlString)
+                imageLoader.load(fromURLString: urlString, imageQuality: imageQualty)
             }
     }
 }
 
 struct ResizableImage: View {
+    
     var image: Image?
     
     var body: some View {
@@ -29,12 +36,13 @@ struct ResizableImage: View {
 }
 
 final class ImageLoader: ObservableObject {
+    
     @Published var image: Image? = nil
     
-    func load(fromURLString urlString: String?) {
+    func load(fromURLString urlString: String?, imageQuality: ImageQuality) {
         guard let urlString else { return }
         
-        let imageURLString = NetworkRoutes.imageBaseURL + urlString
+        let imageURLString = NetworkRoutes.imageBaseURL + imageQuality.rawValue + urlString
         
         ImageDownloadService.getImage(fromUrlString: imageURLString) { uiImage in
             guard let uiImage = uiImage else { return }

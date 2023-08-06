@@ -9,4 +9,5 @@ import SwiftUI
 
 extension Color {
     static let mercuryGray = Color("mercury-gray")
+    static let heartPurple = Color("heart-purple")
 }

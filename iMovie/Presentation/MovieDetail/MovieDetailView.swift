@@ -13,8 +13,8 @@ struct MovieDetailView: View {
 
     var body: some View {
         ZStack {
-            ScrollView {
-                GeometryReader { geometry in
+            GeometryReader { geometry in
+                ScrollView {
                     VStack() {
                         // Calculating frame using geometry to match image resolution and make it aspect fit nicely
                         ZStack {
@@ -57,6 +57,7 @@ struct MovieDetailView: View {
                             Link(destination: url, label: {
                                 MovieButton(title: "View in Safari")
                             })
+                            .padding(.bottom, 20)
                         }
                     }
                 }

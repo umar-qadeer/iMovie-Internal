@@ -13,11 +13,11 @@ struct MovieButton: View {
     
     var body: some View {
         Text(title)
-            .font(.title3)
+            .font(.headline)
             .fontWeight(.semibold)
             .frame(width: 260, height: 50)
-            .foregroundColor(.black)
-            .background(Color.mercuryGray)
+            .foregroundColor(.white)
+            .background(Color.heartPurple)
             .cornerRadius(10)
     }
 }

@@ -24,13 +24,13 @@ final class MovieDetailsDIContainer {
 
     // MARK: - ViewModel
 
-    private func makeMovieDetailsViewModel() -> MovieDetailsViewModel {
+    @MainActor private func makeMovieDetailsViewModel() -> MovieDetailsViewModel {
         return MovieDetailsViewModel(moviesRepository: makeBreedsRepository(), movieId: dependencies.movieId)
     }
 
     // MARK: - View
 
-    func makeMovieDetailsSwiftUIView() -> MovieDetailView {
+    @MainActor func makeMovieDetailsSwiftUIView() -> MovieDetailView {
         let viewModel = makeMovieDetailsViewModel()
         let view = MovieDetailView(viewModel: viewModel)
         return view

@@ -35,7 +35,7 @@ struct ResizableImage: View {
     }
 }
 
-final class ImageLoader: ObservableObject {
+@MainActor final class ImageLoader: ObservableObject {
     
     @Published var image: Image? = nil
     
@@ -44,10 +44,8 @@ final class ImageLoader: ObservableObject {
         
         let imageURLString = NetworkRoutes.imageBaseURL + imageQuality.rawValue + urlString
         
-        ImageDownloadService.getImage(fromUrlString: imageURLString) { uiImage in
-            guard let uiImage = uiImage else { return }
-            
-            DispatchQueue.main.async {
+        Task {
+            if let uiImage = await ImageDownloadService.getImage(fromUrlString: imageURLString) {
                 self.image = Image(uiImage: uiImage)
             }
         }

@@ -1,7 +1,7 @@
 
 import Foundation
 
-final class MovieListViewModel: BaseViewModel, ObservableObject {
+@MainActor final class MovieListViewModel: ObservableObject {
     // MARK: - Properties
     
     @Published var movies = [Movie]()
@@ -30,21 +30,16 @@ final class MovieListViewModel: BaseViewModel, ObservableObject {
         Task {
             do {
                 let response = try await moviesRepository?.fetchMovies(page: currentPage)
+                self.isLoading = false
+                self.currentPage += 1
                 
-                DispatchQueue.main.async { [weak self] in
-                    self?.isLoading = false
-                    self?.currentPage += 1
-                    
-                    if let response {
-                        self?.totalPages = response.total_pages
-                        self?.movies.append(contentsOf: response.results)
-                    }
+                if let response {
+                    self.totalPages = response.total_pages
+                    self.movies.append(contentsOf: response.results)
                 }
             } catch {
-                DispatchQueue.main.async { [weak self] in
-                    self?.error = error
-                    self?.isErrorPresented = true
-                }
+                self.error = error
+                self.isErrorPresented = true
             }
         }
     }

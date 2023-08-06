@@ -2,7 +2,7 @@
 import XCTest
 @testable import iMovie
 
-class NetworkServiceMock: NetworkService {
+final class NetworkServiceMock: NetworkService {
     func request<Request>(_ request: Request) async throws -> Request.Response where Request : iMovie.DataRequest {
 
         if let data = MockDataGenerator().getMockMoviesData() {

@@ -1,7 +1,7 @@
 
 import Foundation
 
-final class MovieDetailsViewModel: BaseViewModel, ObservableObject {
+@MainActor final class MovieDetailsViewModel: ObservableObject {
     
     // MARK: - Properties
     
@@ -26,15 +26,11 @@ final class MovieDetailsViewModel: BaseViewModel, ObservableObject {
         Task {
             do {
                 let response = try await moviesRepository?.fetchMovieDetail(movieId: movieId)
-                DispatchQueue.main.async { [weak self] in
-                    self?.isLoading = false
-                    self?.movie = response
-                }
+                self.isLoading = false
+                self.movie = response
             } catch {
-                DispatchQueue.main.async { [weak self] in
-                    self?.error = error
-                    self?.isErrorPresented = true
-                }
+                self.error = error
+                self.isErrorPresented = true
             }
         }
     }

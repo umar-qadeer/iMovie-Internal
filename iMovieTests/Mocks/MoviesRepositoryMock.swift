@@ -2,7 +2,7 @@
 import Foundation
 @testable import iMovie
 
-class MoviesRepositoryMock: MoviesRepositoryProtocol {
+final class MoviesRepositoryMock: MoviesRepositoryProtocol {
     
     private let mockDataGenerator = MockDataGenerator()
     

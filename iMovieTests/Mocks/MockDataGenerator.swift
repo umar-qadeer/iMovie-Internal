@@ -2,7 +2,7 @@
 import Foundation
 @testable import iMovie
 
-class MockDataGenerator {
+final class MockDataGenerator {
     
     // MARK: - Properties
     

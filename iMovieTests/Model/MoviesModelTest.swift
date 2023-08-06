@@ -2,7 +2,7 @@
 import XCTest
 @testable import iMovie
 
-class MoviesModelTest: XCTestCase {
+final class MoviesModelTest: XCTestCase {
 
     func testMoviesModel_whenInit_thenInitializesSuccessfully() throws {
         // Given

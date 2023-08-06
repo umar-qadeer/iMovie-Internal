@@ -17,7 +17,7 @@ struct MovieListView: View {
                 List {
                     ForEach(viewModel.movies) { movie in
                         NavigationLink(
-                            destination: makeDetailView(for: movie),
+                            destination: getDetailView(for: movie),
                             label: {
                                 MovieListCell(movie: movie)
                             }
@@ -52,7 +52,7 @@ struct MovieListView: View {
         })
     }
     
-    func makeDetailView(for movie: Movie) -> some View {
+    func getDetailView(for movie: Movie) -> some View {
         let appDIContainer = AppDIContainer()
         let diContainer = appDIContainer.makeMovieDetailDIContainer(movieId: movie.id)
         return diContainer.makeMovieDetailView()

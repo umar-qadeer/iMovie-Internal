@@ -1,3 +1,9 @@
+//
+//  MoviesViewModelTests.swift
+//  iMovie
+//
+//  Created by Muhammad Umar on 05/08/2023.
+//
 
 import XCTest
 @testable import iMovie
@@ -16,7 +22,7 @@ final class MoviesViewModelTests: XCTestCase {
         try super.tearDownWithError()
     }
 
-    func testWhenFetchMoviesRecieveBreeds_thenViewModelBreedsCountIsEqualToNinetySix_succeeds() async {
+    func testWhenFetchMoviesRecieveMovies_thenViewModelMoviesCountIsEqualToTwenty_succeeds() async {
         // given
         expectation = expectation(description: "Fetch movies list")
         expectation?.expectedFulfillmentCount = 1

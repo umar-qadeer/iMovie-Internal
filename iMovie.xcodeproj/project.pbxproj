@@ -20,7 +20,6 @@
 		4FB3760B2A7E2CBE00F00E64 /* DataRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FB376042A7E2CBE00F00E64 /* DataRequest.swift */; };
 		4FB3760C2A7E2CBE00F00E64 /* ErrorResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FB376052A7E2CBE00F00E64 /* ErrorResponse.swift */; };
 		4FB376102A7E2D6C00F00E64 /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FB3760F2A7E2D6C00F00E64 /* Movie.swift */; };
-		4FB3761B2A7E2DAF00F00E64 /* AccessibilityIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FB376132A7E2DAF00F00E64 /* AccessibilityIdentifier.swift */; };
 		4FB3761C2A7E2DAF00F00E64 /* Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FB376152A7E2DAF00F00E64 /* Strings.swift */; };
 		4FB3761D2A7E2DAF00F00E64 /* NetworkRoutes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FB376162A7E2DAF00F00E64 /* NetworkRoutes.swift */; };
 		4FB376202A7E2DAF00F00E64 /* NSError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FB3761A2A7E2DAF00F00E64 /* NSError.swift */; };
@@ -72,7 +71,6 @@
 		4FB376042A7E2CBE00F00E64 /* DataRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataRequest.swift; sourceTree = "<group>"; };
 		4FB376052A7E2CBE00F00E64 /* ErrorResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorResponse.swift; sourceTree = "<group>"; };
 		4FB3760F2A7E2D6C00F00E64 /* Movie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
-		4FB376132A7E2DAF00F00E64 /* AccessibilityIdentifier.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccessibilityIdentifier.swift; sourceTree = "<group>"; };
 		4FB376152A7E2DAF00F00E64 /* Strings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Strings.swift; sourceTree = "<group>"; };
 		4FB376162A7E2DAF00F00E64 /* NetworkRoutes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkRoutes.swift; sourceTree = "<group>"; };
 		4FB3761A2A7E2DAF00F00E64 /* NSError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSError.swift; sourceTree = "<group>"; };
@@ -282,19 +280,10 @@
 		4FB376112A7E2DAF00F00E64 /* Common */ = {
 			isa = PBXGroup;
 			children = (
-				4FB376122A7E2DAF00F00E64 /* AccessibilityIdentifier */,
 				4FB376142A7E2DAF00F00E64 /* Constants */,
 				4FB376172A7E2DAF00F00E64 /* Extensions */,
 			);
 			path = Common;
-			sourceTree = "<group>";
-		};
-		4FB376122A7E2DAF00F00E64 /* AccessibilityIdentifier */ = {
-			isa = PBXGroup;
-			children = (
-				4FB376132A7E2DAF00F00E64 /* AccessibilityIdentifier.swift */,
-			);
-			path = AccessibilityIdentifier;
 			sourceTree = "<group>";
 		};
 		4FB376142A7E2DAF00F00E64 /* Constants */ = {
@@ -484,7 +473,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				4FB3761D2A7E2DAF00F00E64 /* NetworkRoutes.swift in Sources */,
-				4FB3761B2A7E2DAF00F00E64 /* AccessibilityIdentifier.swift in Sources */,
 				4FB376082A7E2CBE00F00E64 /* Reachability.swift in Sources */,
 				4FB3760B2A7E2CBE00F00E64 /* DataRequest.swift in Sources */,
 				4FB3765C2A7FF87000F00E64 /* Image.swift in Sources */,

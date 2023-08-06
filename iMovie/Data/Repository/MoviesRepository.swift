@@ -1,3 +1,9 @@
+//
+//  MoviesRepository.swift
+//  iMovie
+//
+//  Created by Muhammad Umar on 05/08/2023.
+//
 
 import Foundation
 
@@ -18,7 +24,7 @@ final class MoviesRepository: MoviesRepositoryProtocol {
         self.networkService = networkService
     }
 
-    // MARK: - BreedsRepositoryProtocol
+    // MARK: - MoviesRepositoryProtocol
 
     func fetchMovies(page: Int) async throws -> MovieResponse {
         return try await networkService.request(MovieRequest(page: page))

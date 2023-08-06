@@ -1,3 +1,9 @@
+//
+//  Strings.swift
+//  iMovie
+//
+//  Created by Muhammad Umar on 05/08/2023.
+//
 
 import Foundation
 
@@ -8,15 +14,9 @@ struct Strings {
         static let movieDetail = "Movie Detail"
     }
     
-    struct List {
-        static let pullToRefresh = "Pull to refresh"
-    }
-    
     struct Alert {
-        static let success = "Success"
         static let error =  "Error"
         static let okay =  "Okay"
-        static let cancel =  "Cancel"
     }
     
     struct Error {
